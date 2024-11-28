@@ -1,0 +1,9 @@
+<div *ngFor="let box of boxes; let i = index">
+    <h3>Box {{i + 1}}</h3>
+    <div class="box" (dragover)="onDragOver($event, i)" (drop)="onDrop($git event, i)" (dragleave)="clearPlaceholder()">
+        <div *ngFor="let item of box.items" class="item" draggable="true" (dragstart)="onDragStart(item, i)">
+            {{item}}
+        </div>
+        <div *ngIf="i === placeholderBoxIndex" class="placeholder"></div>
+    </div>
+</div>
